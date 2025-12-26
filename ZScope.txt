@@ -1,0 +1,15 @@
+----Version 1----
+
+User signup and login
+
+User dashboard
+
+Switching between accounts (account types)
+
+Sending money between accounts
+
+Viewing user transactions
+
+View account details
+
+----Version 2----

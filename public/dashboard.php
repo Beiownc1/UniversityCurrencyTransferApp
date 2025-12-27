@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . '/../includes/functions.php';
+require_once '../includes/navbar.php';
+require_once '../_auth/authLogin.php'; //this page requires a login, so we include this
+
 ?>
 
 <!DOCTYPE html>

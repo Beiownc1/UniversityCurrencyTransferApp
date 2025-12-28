@@ -37,8 +37,8 @@ $isLoggedIn = isset($_SESSION['userID']);
       <a href="logout.php">Logout</a>
 
       <?php else: ?>
-      <?php if ($currentPage !== 'signup.php'): ?>
-      <a href="signup.php">Sign up</a>
+      <?php if ($currentPage !== 'signup1.php'): ?>
+      <a href="signup1.php">Sign up</a>
       <?php endif; ?>
 
       <?php if ($currentPage !== 'login.php'): ?>

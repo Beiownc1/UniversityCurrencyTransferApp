@@ -32,6 +32,7 @@
   --border-6: var(--primary-1000);
 }
 
+/* -------------------------------------------background------------------------------------------- */
 .background {
   min-height: 101vh;
   color: var(--text-3);
@@ -51,25 +52,26 @@
 
 }
 
+/* ------------------------------------------html------------------------------------------ */
 html {
   color-scheme: dark;
   font-family: system-ui;
   font-size: 100%;
 }
 
-/* removes the default padding browsers add */
+/* -------------------------------------------removes the default padding browsers add------------------------------------------- */
 html, body {
   margin: 0;
   padding: 0;
 }
 
-/* navbar texts */
+/* ------------------------------------------------navbar texts------------------------------------------------ */
 .navbar a {
   color: #f8f8f8;
   text-decoration: none;
 }
 
-/* navbar */
+/* -----------------------------------------------------navbar----------------------------------------------------- */
 .navbar {
   position: sticky;
   top: 0;
@@ -77,7 +79,7 @@ html, body {
   height: 85px;
 }
 
-/* div inside header */
+/* -----------------------------------------------------div inside header----------------------------------------------------- */
 .nav-container {
   max-width: 88rem;
   margin: 0 auto;
@@ -89,7 +91,7 @@ html, body {
   top: 0;
 }
 
-/* logo */
+/* -----------------------------------------------------logo----------------------------------------------------- */
 .logo {
   display: flex;
 }
@@ -116,7 +118,7 @@ html, body {
   top: 0.3em;
 }
 
-/* small screens */
+/* -----------------------------------------------------small screens----------------------------------------------------- */
 @media (max-width: 120rem) {
   .navbar {
     padding: 0 1rem;

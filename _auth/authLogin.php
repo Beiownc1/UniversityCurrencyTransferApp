@@ -9,7 +9,7 @@ header("Pragma: no-cache");
 // List of public pages
 $publicPages = [
     'index.php',
-    'signup.php',
+    'signup1.php',
     'login.php'
     
 ];

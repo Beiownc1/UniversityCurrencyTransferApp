@@ -2,7 +2,10 @@
 session_start();
 require_once __DIR__ . '/../config/dbConnect.php';
 
-//Input functions
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
 
 // XSS attack check
 function h($s) 

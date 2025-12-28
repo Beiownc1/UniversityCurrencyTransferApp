@@ -1,10 +1,12 @@
 <?php
 session_start();
 require_once __DIR__ . '/../config/dbConnect.php';
+require_once __DIR__ . '/../includes/header.php';
 
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
+
 
 
 // XSS attack check
@@ -43,8 +45,3 @@ function validateRequiredFields(array $fields): bool {
 
 
 ?>
-<head>
-<link rel="stylesheet" href="style.css">
-</head>
-
-</html>

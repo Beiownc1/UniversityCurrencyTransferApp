@@ -65,7 +65,7 @@ html, body {
   padding: 0;
 }
 
-/* ------------------------------------------------navbar texts------------------------------------------------ */
+/* ------------------------------------------------navbar text/links------------------------------------------------ */
 .navbar a {
   color: #f8f8f8;
   text-decoration: none;
@@ -79,7 +79,22 @@ html, body {
   height: 85px;
 }
 
-/* -----------------------------------------------------div inside header----------------------------------------------------- */
+.nav-right {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  display: inline-flex;
+  position: relative;
+  top: 0.3em;
+}
+
+/* -----------------------------------------------------the div thats inside header----------------------------------------------------- */
 .nav-container {
   max-width: 88rem;
   margin: 0 auto;
@@ -101,21 +116,6 @@ html, body {
   width: auto;
   max-width: 10rem;
   display: block;
-}
-
-.nav-right {
-  display: flex;
-  gap: 1.25rem;
-}
-
-.nav-right a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  display: inline-flex;
-  position: relative;
-  top: 0.3em;
 }
 
 /* -----------------------------------------------------small screens----------------------------------------------------- */

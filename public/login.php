@@ -2,28 +2,47 @@
 require_once __DIR__ . '/../includes/functions.php';
 
 $errorMessage = [];
+$username = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
-    $hashPassword = trim($_POST['hashPassword'] ?? '');
+    $hashPassword = (string)($_POST['hashPassword'] ?? '');
 
     if ($username === '' || $hashPassword === '') {
         $errorMessage[] = "Username and password are required";
     } else {
-        $stmt = $pdo->prepare(
-            "SELECT userID, username, hashPassword 
-             FROM user 
-             WHERE username = ?"
-        );
+
+        $stmt = $pdo->prepare("
+            SELECT userID, username, hashPassword
+            FROM user
+            WHERE username = ?
+        ");
         $stmt->execute([$username]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($hashPassword, $user['hashPassword'])) {
             $_SESSION['user'] = $user['username'];
             $_SESSION['userID'] = (int)$user['userID'];
-            unset($_SESSION['admin']);
+            unset($_SESSION['admin'], $_SESSION['adminID']);
 
-            header("Location: dashboard.php");
+            header("Location: ../private/user_dashboard.php");
+            exit;
+        }
+
+        $stmt = $pdo->prepare("
+            SELECT adminID, username, hashPassword
+            FROM admin
+            WHERE username = ?
+        ");
+        $stmt->execute([$username]);
+        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($admin && password_verify($hashPassword, $admin['hashPassword'])) {
+            $_SESSION['admin'] = $admin['username'];
+            $_SESSION['adminID'] = (int)$admin['adminID'];
+            unset($_SESSION['user'], $_SESSION['userID']);
+
+            header("Location: ../private/admin_dashboard.php");
             exit;
         }
 
@@ -31,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 
 <h1>Login</h1>
 

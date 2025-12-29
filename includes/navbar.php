@@ -4,28 +4,23 @@ require_once __DIR__ . '/../Includes/Functions.php';
 
 <?php
 // get current page for active link styling
-$currentPage = basename($_SERVER['PHP_SELF']);
+$CurrentPage = basename($_SERVER['PHP_SELF']);
 
-// check login state
-$isLoggedIn = isset($_SESSION['userID']) || isset($_SESSION['adminID']);
-
-
-$logoLinkTo = "/currencyTransferApp/Public/Index.php";
+$LogoLinkTo = "/currencyTransferApp/Public/Index.php";
 
 if (isset($_SESSION['userID'])) {
-  $logoLinkTo = "/currencyTransferApp/LoggedIn/UserDashboard.php";
+  $LogoLinkTo = "/currencyTransferApp/LoggedIn/UserDashboard.php";
   
 } elseif (isset($_SESSION['adminID'])) {
-  $logoLinkTo = "/currencyTransferApp/LoggedIn/AdminDashboard.php";
+  $LogoLinkTo = "/currencyTransferApp/LoggedIn/AdminDashboard.php";
 }
-
 ?>
 
 <header class="navbar">
   <div class="nav-container">
 
         <!-- logo button, link is defined above based on session -->
-    <a href="<?=$logoLinkTo?>" class="logo">
+    <a href="<?=$LogoLinkTo?>" class="logo">
       <img src="/currencyTransferApp/Images/BankLogo.png" alt="Riverloot Logo">
     </a>
 
@@ -35,7 +30,7 @@ if (isset($_SESSION['userID'])) {
       <!-- users 'dashboard' button -->
       <?php if (isset($_SESSION['userID'])): ?>
 
-        <?php if ($currentPage !== 'UserDashboard.php'): ?>
+        <?php if ($CurrentPage !== 'UserDashboard.php'): ?>
           <a href="/currencyTransferApp/LoggedIn/UserDashboard.php">Dashboard</a>
         <?php endif; ?>
 
@@ -45,8 +40,8 @@ if (isset($_SESSION['userID'])) {
         <!-- admins 'dashboard' button -->
       <?php elseif (isset($_SESSION['adminID'])): ?>
 
-        <?php if ($currentPage !== 'UserDashboard.php'): ?>
-          <a href="/currencyTransferApp/LoggedIn/AdminDashboard.php">Admin</a>
+        <?php if ($CurrentPage !== 'AdminDashboard.php'): ?>
+          <a href="/currencyTransferApp/LoggedIn/AdminDashboard.php">Dashboard</a>
         <?php endif; ?>
 
         <!-- admins 'logout' button -->
@@ -55,11 +50,11 @@ if (isset($_SESSION['userID'])) {
       <?php else: ?>
 
         <!-- if youre not in sign up page, show link to it -->
-        <?php if ($currentPage !== 'NameAndDOB.php'): ?>
+        <?php if ($CurrentPage !== 'NameAndDOB.php'): ?>
           <a href="/currencyTransferApp/Onboarding/NameAndDOB.php">Sign up</a>
         <?php endif; ?>
         <!-- if youre not in login page, show link to it -->
-        <?php if ($currentPage !== 'login.php'): ?>
+        <?php if ($CurrentPage !== 'Login.php'): ?>
           <a href="/currencyTransferApp/Public/Login.php">Log in</a>
         <?php endif; ?>
 

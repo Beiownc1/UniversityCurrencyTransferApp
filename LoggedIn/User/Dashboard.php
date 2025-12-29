@@ -36,46 +36,27 @@ $stmt->execute([':myUserID' => $myUserID]);
 $res = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<!-- Include unique title for pages -->
 
+<!-- Include unique title for pages -->
 <head>
-  <title>User Dashboard</title>
+<title>User Dashboard</title>
 </head>
 <!-- Body -->
 
 <body>
-    <div class="sidebar">
-      <div class="sidebar-brand">
-        <div class="brand-flex">
-          <img src="img/logo.png" width="30px" alt="logo">
 
-            <div class="brand-icons">
-            <span class="las la-bell"></span>
-            <span class="las la-user-circle"></span>
-        </div>
-      </div>
-    </div>
-    <div class="sidebar-main">
-    <img src="img/2.jpg" alt="">
-    </div>
-    
-  </div>
+<main>
 
+<?php if (!$res): ?>
+<p>No account found for this user</p>
+<?php else: ?>
+<section aria-label="Account balance">
+<p>Account Number: <?= h($res['accountNumber']) ?></p>
+<p>Balance: <?= h($res['currencyType']) ?> <?= number_format((float)$res['balance'], 2) ?></p>
+</section>
+<?php endif; ?>
 
-
-
-  <main>
-
-    <?php if (!$res): ?>
-      <p>No account found for this user</p>
-    <?php else: ?>
-      <section aria-label="Account balance">
-        <p>Account Number: <?= h($res['accountNumber']) ?></p>
-        <p>Balance: <?= h($res['currencyType']) ?>   <?= number_format((float) $res['balance'], 2) ?></p>
-      </section>
-    <?php endif; ?>
-
-  </main>
+</main>
 
 </body>
 

@@ -4,6 +4,6 @@
 if (session_status() === PHP_SESSION_NONE) session_start();
 
 if (!isset($_SESSION['user']) || !isset($_SESSION['userID'])) {
-    header("Location: /currencyTransferApp/Public/login.php");
+    header("Location: /currencyTransferApp/Public/Login.php");
     exit;
 }

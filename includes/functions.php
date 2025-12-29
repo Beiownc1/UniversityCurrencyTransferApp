@@ -7,13 +7,10 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
-
-
 // XSS attack check
 function h($s) 
 {
     return htmlspecialchars($s);
-
 }
 
 // checks if phonenumber field is only numbers / manually should add the +44
@@ -41,7 +38,4 @@ function validateRequiredFields(array $fields): bool {
     }
     return true;
 }
-
-
-
 ?>

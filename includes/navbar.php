@@ -13,10 +13,10 @@ $isLoggedIn = isset($_SESSION['userID']) || isset($_SESSION['adminID']);
 $logoLinkTo = "/currencyTransferApp/Public/Index.php";
 
 if (isset($_SESSION['userID'])) {
-  $logoLinkTo = "/currencyTransferApp/LoggedUser/Dashboard.php";
+  $logoLinkTo = "/currencyTransferApp/LoggedIn/UserDashboard.php";
   
 } elseif (isset($_SESSION['adminID'])) {
-  $logoLinkTo = "/currencyTransferApp/LoggedAdmin/Dashboard.php";
+  $logoLinkTo = "/currencyTransferApp/LoggedIn/AdminDashboard.php";
 }
 
 ?>
@@ -35,28 +35,24 @@ if (isset($_SESSION['userID'])) {
       <!-- users 'dashboard' button -->
       <?php if (isset($_SESSION['userID'])): ?>
 
-        <?php if ($currentPage !== 'Dashboard.php'): ?>
-          <a href="/currencyTransferApp/LoggedUser/Dashboard.php">Dashboard</a>
+        <?php if ($currentPage !== 'UserDashboard.php'): ?>
+          <a href="/currencyTransferApp/LoggedIn/UserDashboard.php">Dashboard</a>
         <?php endif; ?>
 
         <!-- users 'logout' button -->
         <a href="/currencyTransferApp/Logout/Logout.php">Logout</a>
 
-
         <!-- admins 'dashboard' button -->
       <?php elseif (isset($_SESSION['adminID'])): ?>
 
-        <?php if ($currentPage !== 'Dashboard.php'): ?>
-          <a href="/currencyTransferApp/LoggedAdmin/Dashboard.php">Admin</a>
+        <?php if ($currentPage !== 'UserDashboard.php'): ?>
+          <a href="/currencyTransferApp/LoggedIn/AdminDashboard.php">Admin</a>
         <?php endif; ?>
 
         <!-- admins 'logout' button -->
         <a href="/currencyTransferApp/Logout/Logout.php">Logout</a>
 
-
-
       <?php else: ?>
-
 
         <!-- if youre not in sign up page, show link to it -->
         <?php if ($currentPage !== 'NameAndDOB.php'): ?>

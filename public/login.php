@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </table>
 
     <button type="submit">Login</button>
-    <button type="button" onclick="location.href='index.php'">Cancel</button>
+    <button type="button" onclick="location.href='Index.php'">Cancel</button>
 </form>
 
 <br>

@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../Includes/Functions.php';
 
 if (empty($_SESSION['signup']['firstName']) || empty($_SESSION['signup']['lastName'])) {
-  header("Location: signup1.php");
+  header("Location: NameAndDOB.php");
   exit;
 }
 
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'phoneCountry' => $phoneCountry,
       'phoneLocal' => $phoneLocalClean,
     ]);
-    header("Location: signup3.php");
+    header("Location: /currencyTransferApp/Onboarding/Address.php");
     exit;
   }
 }
@@ -130,7 +130,7 @@ $phoneLocal = $signup['phoneLocal'] ?? '';
   <label>Phone number*</label><br>
   <input name="phoneLocal" required value="<?= h($phoneLocal) ?>" placeholder="digits only"><br><br>
 
-  <button type="button" onclick="location.href='signup1.php'">Back</button>
+  <button type="button" onclick="location.href='NameAndDOB.php'">Back</button>
   <button type="submit">Next</button>
-  <button type="button" onclick="location.href='signupCancel.php'">Cancel</button>
+  <button type="button" onclick="location.href='Cancel.php'">Cancel</button>
 </form>

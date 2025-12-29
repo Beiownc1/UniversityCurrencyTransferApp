@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../Includes/Functions.php';
 
 $errors = [];
 $signup = $_SESSION['signup'] ?? [];
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'lastName' => $lastName,
       'dateOfBirth' => $dateOfBirth,
     ]);
-    header("Location: signup2.php");
+    header("Location: /currencyTransferApp/Onboarding/UsernameAndPassword.php");
     exit;
   }
 }
@@ -59,5 +59,5 @@ $dateOfBirth = $signup['dateOfBirth'] ?? '';
   <input type="date" name="dateOfBirth" required max="<?= date('Y-m-d') ?>" value="<?= h($dateOfBirth) ?>"><br><br>
 
   <button type="submit">Next</button>
-  <button type="button" onclick="location.href='signupCancel.php'">Cancel</button>
+  <button type="button" onclick="location.href='Cancel.php'">Cancel</button>
 </form>

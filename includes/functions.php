@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/dbConnect.php';
-require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../Config/DBConnect.php';
+require_once __DIR__ . '/../Includes/Header.php';
 
 if (session_status() === PHP_SESSION_NONE) {
   session_start();

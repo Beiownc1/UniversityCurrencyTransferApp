@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
-require_once '../includes/navbar.php';
-require_once '../_auth/authUser.php'; //this page requires a login, so we include this
+require_once __DIR__ . '/../Includes/Functions.php';
+require_once '../Includes/Navbar.php';
+require_once '../Auth/User.php'; //this page requires a login, so we include this
 
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../Includes/Functions.php';
 
 $errorMessage = [];
 $username = '';
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['userID'] = (int)$user['userID'];
             unset($_SESSION['admin'], $_SESSION['adminID']);
 
-            header("Location: ../private/user_dashboard.php");
+            header("Location: ../LoggedUser/Dashboard.php");
             exit;
         }
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['adminID'] = (int)$admin['adminID'];
             unset($_SESSION['user'], $_SESSION['userID']);
 
-            header("Location: ../private/admin_dashboard.php");
+            header("Location: ../LoggedAdmin/Dashboard.php");
             exit;
         }
 
@@ -85,5 +85,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <br>
 <div>
-    <a href="forgotPassword.php">Can’t login?</a>
+    <a href="forgotPassword.php">Can’t login?</a> <!-- Change Later -->
 </div>

@@ -6,5 +6,5 @@ header("Pragma: no-cache");
 ?>
 
 <head>
-<link rel="stylesheet" href="/currencyTransferApp/public/style.css">
+<link rel="stylesheet" href="/currencyTransferApp/Public/Style.css">
 </head>

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../Includes/Functions.php';
 // check to see if step 1 + 2 is done, else go back to step 1
 if (
   empty($_SESSION['signup']['firstName']) ||
@@ -7,7 +7,7 @@ if (
   empty($_SESSION['signup']['password']) ||
   empty($_SESSION['signup']['email'])
 ) {
-  header("Location: signup1.php");
+  header("Location: /currencyTransferApp/Onboarding/NameAndDOB.php");
   exit;
 }
 
@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $pdo->commit();
 
       unset($_SESSION['signup']);
-      header("Location: login.php");
+      header("Location: /currencyTransferApp/Public/login.php");
       exit;
 
     } catch (PDOException $e) {
@@ -169,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <label>Postcode*</label><br>
   <input name="postcode" required value="<?= h($postcode) ?>"><br><br>
 
-  <button type="button" onclick="location.href='signup2.php'">Back</button>
+  <button type="button" onclick="location.href='UsernameAndPassword.php'">Back</button>
   <button type="submit">Create Account</button>
-  <button type="button" onclick="location.href='signupCancel.php'">Cancel</button>
+  <button type="button" onclick="location.href='Cancel.php'">Cancel</button>
 </form>

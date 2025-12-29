@@ -5,6 +5,10 @@ header("Pragma: no-cache");
 
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="/currencyTransferApp/Public/Style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/currencyTransferApp/Public/Style.css">
 </head>

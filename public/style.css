@@ -1,4 +1,4 @@
-:root { 
+:root {
   --primary-1200: hsl(265, 100%, 18%);
   --primary-1100: hsl(301, 100%, 21%);
   --primary-1000: hsl(277, 100%, 50%);
@@ -37,19 +37,16 @@
   min-height: 101vh;
   color: var(--text-3);
   background-color: var(--primary-900);
-  background-image:
-    linear-gradient(hsl(from var(--primary-900) h s l / 0.8)),
+  background-image: linear-gradient(hsl(from var(--primary-900) h s l / 0.8)),
     url("https://user-images.githubusercontent.com/53535277/97919236-75a9f480-1d25-11eb-8ee1-5a6293ff8998.gif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  
 }
 
 .tempBackground {
- background-color: rgb(12, 12, 12);
-
+  background-color: rgb(12, 12, 12);
 }
 
 /* ------------------------------------------html------------------------------------------ */
@@ -60,7 +57,8 @@ html {
 }
 
 /* -------------------------------------------removes the default padding browsers add------------------------------------------- */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -118,13 +116,16 @@ html, body {
   display: block;
 }
 
+/* -----------------------------------------------------Grids----------------------------------------------------- */
+
+
 /* -----------------------------------------------------small screens----------------------------------------------------- */
 @media (max-width: 120rem) {
-  .navbar {
-    padding: 0 1rem;
-  }
-  
-  .nav-container {
+.navbar {
+  padding: 0 1rem;
+}
+
+.nav-container {
   max-width: 70rem;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -134,15 +135,30 @@ html, body {
   min-height: 4.5rem;
 }
 
-  .logo img {
-    height: 1.7rem;
-    width: auto;
+.logo img {
+  height: 1.7rem;
+  width: auto;
   max-width: 12rem;
   display: block;
-  }
+}
 
-  .nav-right a {
-    padding: 0.5rem 0.7rem;
-    font-size: 1rem;
-  }
+.nav-right a {
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+}
+
+.header {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.5rem;
+}
+
+.header-balance {
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+}
 }

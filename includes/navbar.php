@@ -9,16 +9,15 @@ $CurrentPage = basename($_SERVER['PHP_SELF']);
 $LogoLinkTo = "/currencyTransferApp/Public/Index.php";
 
 if (isset($_SESSION['userID'])) {
-  $LogoLinkTo = "/currencyTransferApp/LoggedIn/UserDashboard.php";
+  $LogoLinkTo = "/currencyTransferApp/LoggedIn/User/Dashboard.php";
   
 } elseif (isset($_SESSION['adminID'])) {
-  $LogoLinkTo = "/currencyTransferApp/LoggedIn/AdminDashboard.php";
+  $LogoLinkTo = "/currencyTransferApp/LoggedIn/Admin/Dashboard.php";
 }
 ?>
 
 <header class="navbar">
   <div class="nav-container">
-
         <!-- logo button, link is defined above based on session -->
     <a href="<?=$LogoLinkTo?>" class="logo">
       <img src="/currencyTransferApp/Images/BankLogo.png" alt="Riverloot Logo">
@@ -31,7 +30,7 @@ if (isset($_SESSION['userID'])) {
       <?php if (isset($_SESSION['userID'])): ?>
 
         <?php if ($CurrentPage !== 'UserDashboard.php'): ?>
-          <a href="/currencyTransferApp/LoggedIn/UserDashboard.php">Dashboard</a>
+          <a href="/currencyTransferApp/LoggedIn/User/Dashboard.php">Dashboard</a>
         <?php endif; ?>
 
         <!-- users 'logout' button -->
@@ -41,7 +40,7 @@ if (isset($_SESSION['userID'])) {
       <?php elseif (isset($_SESSION['adminID'])): ?>
 
         <?php if ($CurrentPage !== 'AdminDashboard.php'): ?>
-          <a href="/currencyTransferApp/LoggedIn/AdminDashboard.php">Dashboard</a>
+          <a href="/currencyTransferApp/LoggedIn/Admin/Dashboard.php">Dashboard</a>
         <?php endif; ?>
 
         <!-- admins 'logout' button -->
@@ -60,7 +59,5 @@ if (isset($_SESSION['userID'])) {
 
       <?php endif; ?>
     </nav>
-
-
   </div>
 </header>

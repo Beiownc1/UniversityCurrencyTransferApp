@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['userID'] = (int)$user['userID'];
             unset($_SESSION['admin'], $_SESSION['adminID']);
 
-            header("Location: ../LoggedIn/UserDashboard.php");
+            header("Location: /currencyTransferApp/LoggedIn/User/Dashboard.php");
             exit;
         }
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['adminID'] = (int)$admin['adminID'];
             unset($_SESSION['user'], $_SESSION['userID']);
 
-            header("Location: ../LoggedIn/AdminDashboard.php");
+            header("Location: /currencyTransferApp/LoggedIn/Admin/Dashboard.php");
             exit;
         }
 

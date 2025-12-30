@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 <form method="post">
-    <table>
+    <table align="center">
         <tr>
             <td>Username*</td>
             <td>
@@ -78,9 +78,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </td>
         </tr>
     </table>
-
+<div align="center">
     <button type="submit">Login</button>
     <button type="button" onclick="location.href='Index.php'">Cancel</button>
+    </div>
 </form>
 
 <br>

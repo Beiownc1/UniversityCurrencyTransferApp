@@ -45,7 +45,7 @@ $dateOfBirth = $signup['dateOfBirth'] ?? '';
   </div>
 <?php endif; ?>
 
-<form method="post">
+<form align="center" method="post">
   <label>First name*</label><br>
   <input name="firstName" required value="<?= h($firstName) ?>"><br><br>
 

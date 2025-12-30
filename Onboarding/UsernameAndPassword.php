@@ -101,7 +101,7 @@ $phoneLocal = $signup['phoneLocal'] ?? '';
   </div>
 <?php endif; ?>
 
-<form method="post">
+<form align="center" method="post">
   <label>Username*</label><br>
   <input name="username" required value="<?= h($username) ?>"><br><br>
 

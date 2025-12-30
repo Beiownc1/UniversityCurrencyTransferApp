@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $stmt = $pdo->prepare("
         INSERT INTO user
         (username, hashPassword, firstName, middleName, lastName, dateOfBirth, email, telephone, country, city, street, postcode, userStatus)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'verifying')
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'active')
       ");
 
       $stmt->execute([
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
       $userID = (int) $pdo->lastInsertId();
-
+      
 
       do {
         $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $letters[random_int(0, 25)] .
           $letters[random_int(0, 25)];
 
-        $number = random_int(12345678, 99999999);
+        $number = random_int(10000000, 99999999);
         $accountNumber = $prefix . $number;
 
         $stmt = $pdo->prepare("SELECT COUNT(*) FROM account WHERE accountNumber = ?");
@@ -109,21 +109,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       } while ($duplicateCheck > 0);
 
-      $currencyType = $countryCurrencyType[$country];
-      
       $stmt = $pdo->prepare("
         INSERT INTO account
-        (userID, accountNumber, accountCreationDate, balance, currencyType, dailyTransactionLimit, accountStatus)
-      VALUES (?, ?, CURRENT_TIMESTAMP, 0, ?, ?, 'verifying')
-
+        (userID, accountNumber, dailyTransactionLimit, accountStatus)
+        VALUES (?, ?, ?, 'active')
       ");
+      $stmt->execute([$userID, $accountNumber, 2000]);
 
-      $stmt->execute([
-        $userID,
-        $accountNumber,
-        $currencyType,
-        2000
-      ]);
+      $currencyType = $countryCurrencyType[$country] ?? 'GBP';
+      
+      $accountID = (int)$pdo->lastInsertId();
+
+      $stmt = $pdo->prepare("
+        INSERT INTO wallet
+        (accountID, currencyType, balance, walletStatus)
+        VALUES (?, ?, 0, 'active')
+      ");
+      $stmt->execute([$accountID, $currencyType]);
+      
+      
 
       $pdo->commit();
 
@@ -133,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } catch (PDOException $e) {
       $pdo->rollBack();
-      $errors[] = "Signup failed.";
+      die($e->getMessage());
     }
   }
 }
@@ -149,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 <?php endif; ?>
 
-<form method="post">
+<form align="center" method="post">
   <label>Country*</label><br>
   <select name="country" required>
     <option value="">Select…</option>

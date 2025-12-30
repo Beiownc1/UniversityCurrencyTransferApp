@@ -63,13 +63,9 @@ $stmt = $pdo->prepare("
 $stmt->execute([':uid' => (int)$_SESSION['userID']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>User Dashboard</title>
-</head>
+
 
 <body>
 <main class="dash">
@@ -81,7 +77,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
     <nav class="dash__nav">
       <a href="#" class="dash__link dash__link--active">Overview</a>
       <a href="/currencyTransferApp/Transaction/UserTransactions.php" class="dash__link">Send money</a>
-      <a href="#" class="dash__link">Exchange</a>
+      <a href="/currencyTransferApp/Exchange/ExchangeCurrency.php" class="dash__link">Exchange</a>
       <a href="#" class="dash__link">Transactions</a>
       <a href="#" class="dash__link">Cards</a>
       <a href="#" class="dash__link">Settings</a>

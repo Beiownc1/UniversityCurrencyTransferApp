@@ -222,7 +222,6 @@ if (!empty($_GET['ok'])) {
 ?>
 
   <title>Send Money</title>
-<body>
 
 
 
@@ -236,7 +235,7 @@ if (!empty($_GET['ok'])) {
     <nav class="dash__nav">
       <a href="/currencyTransferApp/LoggedIn/User/Dashboard.php" class="dash__link">Overview</a>
       <a href="/currencyTransferApp/Transaction/UserTransactions.php" class="dash__link dash__link--active">Send money</a>
-      <a href="#" class="dash__link">Exchange</a>
+      <a href="/currencyTransferApp/Exchange/ExchangeCurrency.php" class="dash__link">Exchange</a>
       <a href="#" class="dash__link">Transactions</a>
       <a href="#" class="dash__link">Cards</a>
       <a href="#" class="dash__link">Settings</a>

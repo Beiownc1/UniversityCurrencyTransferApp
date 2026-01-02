@@ -3,9 +3,12 @@ session_start();
 require_once __DIR__ . '/../Config/DBConnect.php';
 require_once __DIR__ . '/../Includes/Header.php';
 
+setcookie("test", "test", time() + (86400), "/");
+
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
+
 
 // XSS attack check
 function h($s) 
